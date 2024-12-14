@@ -1,11 +1,11 @@
-package com.food.ordering.system.service.domain.entity;
+package com.food.ordering.system.order.service.domain.entity;
 
 import com.food.ordering.system.domain.entity.AggregateRoot;
 import com.food.ordering.system.domain.valueobject.*;
-import com.food.ordering.system.service.domain.exception.OrderDomainException;
-import com.food.ordering.system.service.domain.valueobject.OrderItemId;
-import com.food.ordering.system.service.domain.valueobject.StreetAddress;
-import com.food.ordering.system.service.domain.valueobject.TrackingId;
+import com.food.ordering.system.order.service.domain.valueobject.OrderItemId;
+import com.food.ordering.system.order.service.domain.valueobject.StreetAddress;
+import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
+import com.food.ordering.system.order.service.domain.valueobject.TrackingId;
 
 import java.util.List;
 import java.util.UUID;
@@ -37,6 +37,47 @@ public class Order extends AggregateRoot<OrderId> {
         validateInitialOrder();
         validateTotalPrice();
         validateItemsPrice();
+    }
+
+    public void pay() {
+        if (orderStatus == OrderStatus.PENDING) {
+            throw new OrderDomainException("Order is not in correct state for pay operation!");
+        }
+
+        orderStatus = OrderStatus.PAID;
+    }
+
+    public void approve() {
+        if (orderStatus != OrderStatus.PAID) {
+            throw new OrderDomainException("Order is not in correct state for approve operation!");
+        }
+        orderStatus = OrderStatus.APPROVED;
+    }
+
+    public void initCancel(List<String> failureMessage) {
+        if (orderStatus != OrderStatus.PAID) {
+            throw new OrderDomainException("Order is not in correct state for initCancel operation!");
+        }
+        orderStatus = OrderStatus.CANCELLING;
+        updateFailureMessages(failureMessage);
+    }
+
+    public void cancel(List<String> failureMessage) {
+        if (!(orderStatus == OrderStatus.CANCELLING || orderStatus == OrderStatus.PENDING)) {
+            throw new OrderDomainException("Order is not in correct state for cancel operation!");
+        }
+        orderStatus = OrderStatus.CANCELLED;
+        updateFailureMessages(failureMessage);
+    }
+
+    private void updateFailureMessages(List<String> failureMessage) {
+        if (this.failureMessage != null && failureMessage != null) {
+            this.failureMessage.addAll(failureMessage.stream().filter(message -> !message.isEmpty()).toList());
+        }
+
+        if (this.failureMessage == null) {
+            this.failureMessage = failureMessage;
+        }
     }
 
     private void validateInitialOrder() {
@@ -87,9 +128,12 @@ public class Order extends AggregateRoot<OrderId> {
         items = builder.items;
         trackingId = builder.trackingId;
         orderStatus = builder.orderStatus;
-        failureMessage = builder.failureMessage;
+        failureMessage = builder.failureMessages;
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
 
     public CustomerId getCustomerId() {
         return customerId;
@@ -132,13 +176,9 @@ public class Order extends AggregateRoot<OrderId> {
         private List<OrderItem> items;
         private TrackingId trackingId;
         private OrderStatus orderStatus;
-        private List<String> failureMessage;
+        private List<String> failureMessages;
 
         private Builder() {
-        }
-
-        public static Builder builder() {
-            return new Builder();
         }
 
         public Builder orderId(OrderId val) {
@@ -181,8 +221,8 @@ public class Order extends AggregateRoot<OrderId> {
             return this;
         }
 
-        public Builder failureMessage(List<String> val) {
-            failureMessage = val;
+        public Builder failureMessages(List<String> val) {
+            failureMessages = val;
             return this;
         }
 
