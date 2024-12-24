@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="주문 서비스 도메인 로직 테스트">
+      <change afterPath="$PROJECT_DIR$/infrastructure/docker-compose/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/docker-compose/common.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/docker-compose/init_kafka.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/docker-compose/kafka_cluster.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/docker-compose/zookeeper.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-domain/order-application-service/src/test/java/com/food/ordering/system/order/service/domain/OrderApplicationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-domain/order-application-service/src/test/java/com/food/ordering/system/order/service/domain/OrderApplicationServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/OrderDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/OrderDomainServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/entity/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +201,7 @@
       <workItem from="1734172520458" duration="12257000" />
       <workItem from="1734356382566" duration="8712000" />
       <workItem from="1734595655412" duration="75000" />
-      <workItem from="1734601413375" duration="3279000" />
+      <workItem from="1734601413375" duration="9543000" />
     </task>
     <task id="LOCAL-00001" summary="주문 서비스 모듈 생성">
       <option name="closed" value="true" />
@@ -319,7 +323,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734366479251</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="주문 서비스 도메인 로직 테스트">
+      <option name="closed" value="true" />
+      <created>1735005140792</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1735005140792</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
