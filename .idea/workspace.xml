@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="kafka 일반 모델 구현">
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-producer/src/main/java/com/food/ordering/system/kafka/producer/KafkaProducerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-producer/src/main/java/com/food/ordering/system/kafka/producer/exception/KafkaProducerException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-producer/src/main/java/com/food/ordering/system/kafka/producer/service/KafkaProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-producer/src/main/java/com/food/ordering/system/kafka/producer/service/impl/KafkaProducerImpl.java" afterDir="false" />
+    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="kafka 생산자 일반 모듈 구현">
+      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-consumer/src/main/java/com/food/ordering/system/kafka/consumer/KafkaConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-consumer/src/main/java/com/food/ordering/system/kafka/consumer/config/KafkaConsumerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/kafka/kafka-producer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-producer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/kafka/kafka-consumer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-consumer/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +209,7 @@
       <workItem from="1734172520458" duration="12257000" />
       <workItem from="1734356382566" duration="8712000" />
       <workItem from="1734595655412" duration="75000" />
-      <workItem from="1734601413375" duration="15037000" />
+      <workItem from="1734601413375" duration="15432000" />
     </task>
     <task id="LOCAL-00001" summary="주문 서비스 모듈 생성">
       <option name="closed" value="true" />
@@ -365,7 +363,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735031301290</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="kafka 생산자 일반 모듈 구현">
+      <option name="closed" value="true" />
+      <created>1735032245843</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1735032245843</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +407,8 @@
     <MESSAGE value="Docker을 이용하여 Apache kafka 실행" />
     <MESSAGE value="kafka 구성 데이터 일반 모듈 구현" />
     <MESSAGE value="kafka 일반 모델 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="kafka 일반 모델 구현" />
+    <MESSAGE value="kafka 생산자 일반 모듈 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="kafka 생산자 일반 모듈 구현" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
