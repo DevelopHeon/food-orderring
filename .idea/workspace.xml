@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="Docker을 이용하여 Apache kafka 실행">
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-config-data/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-config-data/src/main/java/com/food/ordering/system/kafka/config/data/KafkaConfigData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-config-data/src/main/java/com/food/ordering/system/kafka/config/data/KafkaConsumerConfigData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-config-data/src/main/java/com/food/ordering/system/kafka/config/data/KafkaProducerConfigData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-consumer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-model/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-producer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="kafka 구성 데이터 일반 모듈 구현">
+      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-model/src/main/resources/avro/payment_request.avsc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-model/src/main/resources/avro/payment_response.avsc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-model/src/main/resources/avro/restaurant_approval_request.avsc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-model/src/main/resources/avro/restaurant_approval_response.avsc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/kafka/kafka-model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-model/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +26,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -100,7 +95,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "/Users/gimhuiheon/Documents/study/microservices/food-ordering-system/food-ordering-system/infrastructure/kafka/kafka-config-data/src/main/java/com/food/ordering/system/kafka/config/data",
+    "last_opened_file_path": "/Users/gimhuiheon/Documents/study/microservices/food-ordering-system/food-ordering-system/infrastructure/kafka/kafka-model/src/main/resources/avro",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,6 +111,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/infrastructure/kafka/kafka-model/src/main/resources/avro" />
       <recent name="$PROJECT_DIR$/infrastructure/kafka/kafka-config-data/src/main/java/com/food/ordering/system/kafka/config/data" />
     </key>
   </component>
@@ -215,7 +211,7 @@
       <workItem from="1734172520458" duration="12257000" />
       <workItem from="1734356382566" duration="8712000" />
       <workItem from="1734595655412" duration="75000" />
-      <workItem from="1734601413375" duration="13039000" />
+      <workItem from="1734601413375" duration="14043000" />
     </task>
     <task id="LOCAL-00001" summary="주문 서비스 모듈 생성">
       <option name="closed" value="true" />
@@ -353,7 +349,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735011655114</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="kafka 구성 데이터 일반 모듈 구현">
+      <option name="closed" value="true" />
+      <created>1735030295360</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1735030295360</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,7 +391,8 @@
     <MESSAGE value="주문 추적 명령 핸들러 구현" />
     <MESSAGE value="주문 서비스 도메인 로직 테스트" />
     <MESSAGE value="Docker을 이용하여 Apache kafka 실행" />
-    <option name="LAST_COMMIT_MESSAGE" value="Docker을 이용하여 Apache kafka 실행" />
+    <MESSAGE value="kafka 구성 데이터 일반 모듈 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="kafka 구성 데이터 일반 모듈 구현" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
