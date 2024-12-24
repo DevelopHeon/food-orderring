@@ -9,5 +9,4 @@ import com.food.ordering.system.domain.valueobject.CustomerId;
  * @since 2024.12.14
  **********************************************************************************************************************/
 public class Customer extends AggregateRoot<CustomerId> {
-
 }
