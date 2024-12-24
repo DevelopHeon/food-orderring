@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -70,22 +71,25 @@ public class OrderDomainServiceImpl implements OrderDomainService{
     }
 
     private void setOrderProductInformation(Order order, Restaurant restaurant) {
-        Map<ProductId, Product> restaurantProductMap = restaurant.getProducts()
+        Map<ProductId, List<Product>> productMap = restaurant.getProducts()
                 .stream()
-                .collect(Collectors.toMap(
-                        Product::getId,
-                        product -> product
-                ));
+                .collect(Collectors.groupingBy(Product::getId));
 
         order.getItems().forEach(orderItem -> {
             Product currentProduct = orderItem.getProduct();
-            Product restaurantProduct = restaurantProductMap.get(currentProduct.getId());
+            List<Product> matchingProducts = productMap.get(currentProduct.getId());
 
-            if (restaurantProduct != null) {
-                currentProduct.updateWithConfirmedNameAndPrice(
-                    restaurantProduct.getName(),
-                    restaurantProduct.getPrice()
-                );
+            if (!matchingProducts.isEmpty()) {
+                // equals() 메서드로 정확히 일치하는 제품 찾기
+                matchingProducts.stream()
+                    .filter(currentProduct::equals)
+                    .findFirst()
+                    .ifPresent(restaurantProduct ->
+                        currentProduct.updateWithConfirmedNameAndPrice(
+                            restaurantProduct.getName(),
+                            restaurantProduct.getPrice()
+                        )
+                    );
             }
         });
     }
