@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="jpa 레파지토리 및 어댑터 구현 (customer, restaurant)">
-      <change afterPath="$PROJECT_DIR$/order-service/order-domain/order-application-service/src/main/java/com/food/ordering/system/order/service/domain/config/OrderServiceConfigData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/mapper/OrderMessagingDataMapper.java" afterDir="false" />
+    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="메세징 모듈 - 게시자 구현 추가하기">
+      <change afterPath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/publisher/kafka/CancelOrderKafkaMessagePublisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/publisher/kafka/CreateOrderKafkaMessagePublisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/publisher/kafka/OrderKafkaMessageHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/publisher/kafka/PayOrderKafkaMessagePublisher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-messaging/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-messaging/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/mapper/OrderMessagingDataMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/mapper/OrderMessagingDataMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +221,7 @@
       <workItem from="1734356382566" duration="8712000" />
       <workItem from="1734595655412" duration="75000" />
       <workItem from="1734601413375" duration="17430000" />
-      <workItem from="1735474822291" duration="7379000" />
+      <workItem from="1735474822291" duration="9236000" />
     </task>
     <task id="LOCAL-00001" summary="주문 서비스 모듈 생성">
       <option name="closed" value="true" />
@@ -429,7 +431,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735481923806</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="메세징 모듈 - 게시자 구현 추가하기">
+      <option name="closed" value="true" />
+      <created>1735482441668</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1735482441668</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +472,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="주문 서비스 모듈 생성" />
     <MESSAGE value="주문 서비스 모듈 생성2 / BaseEntity 및 AggregateRoot 공통 클래스 생성" />
     <MESSAGE value="공통 도메인 모듈에 값 객체와 도메인 이벤트 생성" />
     <MESSAGE value="DDD 사용 - 주문 서비스 도메인 로직 구현" />
@@ -487,7 +496,8 @@
     <MESSAGE value="Order jpa entity 구현" />
     <MESSAGE value="jpa 레파지토리 및 어댑터 구현" />
     <MESSAGE value="jpa 레파지토리 및 어댑터 구현 (customer, restaurant)" />
-    <option name="LAST_COMMIT_MESSAGE" value="jpa 레파지토리 및 어댑터 구현 (customer, restaurant)" />
+    <MESSAGE value="메세징 모듈 - 게시자 구현 추가하기" />
+    <option name="LAST_COMMIT_MESSAGE" value="메세징 모듈 - 게시자 구현 추가하기" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
