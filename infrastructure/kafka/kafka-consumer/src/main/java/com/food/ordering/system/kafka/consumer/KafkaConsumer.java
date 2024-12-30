@@ -10,5 +10,5 @@ import java.util.List;
  * @since 2024.12.24
  **********************************************************************************************************************/
 public interface KafkaConsumer<T extends SpecificRecordBase> {
-    void receive(List<T> message,List<Long> keys, List<Integer> partitions, List<Long> offsets);
+    void receive(List<T> message,List<String> keys, List<Integer> partitions, List<Long> offsets);
 }
