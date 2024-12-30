@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="메세징 모듈 - 게시자 구현 추가하기">
-      <change afterPath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/listener/kafka/RestaurantApprovalResponseKafkaListener.java" afterDir="false" />
+    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="메시징 모듈 - 리스너 구현 추가">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/order-container/src/main/java/com/food/ordering/system/order/service/domain/BeanConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/order-container/src/main/java/com/food/ordering/system/order/service/domain/OrderServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/order-container/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-service/order-container/src/main/resources/init-schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/kafka/kafka-consumer/src/main/java/com/food/ordering/system/kafka/consumer/KafkaConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-consumer/src/main/java/com/food/ordering/system/kafka/consumer/KafkaConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/mapper/OrderMessagingDataMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/mapper/OrderMessagingDataMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/order-container/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-container/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/OrderDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/OrderDomainServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,9 +111,18 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
     "spring.configuration.checksum": "57b0a586bf9f70a59d2ae55d4d950de4",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "redshift",
+      "postgresql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "PostgreSQL"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -220,7 +235,7 @@
       <workItem from="1734595655412" duration="75000" />
       <workItem from="1734601413375" duration="17430000" />
       <workItem from="1735474822291" duration="10163000" />
-      <workItem from="1735564299282" duration="2781000" />
+      <workItem from="1735564299282" duration="8470000" />
     </task>
     <task id="LOCAL-00001" summary="주문 서비스 모듈 생성">
       <option name="closed" value="true" />
@@ -446,7 +461,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735484438134</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="메시징 모듈 - 리스너 구현 추가">
+      <option name="closed" value="true" />
+      <created>1735567246702</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1735567246702</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -479,7 +502,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="주문 서비스 모듈 생성2 / BaseEntity 및 AggregateRoot 공통 클래스 생성" />
     <MESSAGE value="공통 도메인 모듈에 값 객체와 도메인 이벤트 생성" />
     <MESSAGE value="DDD 사용 - 주문 서비스 도메인 로직 구현" />
     <MESSAGE value="주문 엔티티 구현 메서드 추가" />
@@ -504,7 +526,8 @@
     <MESSAGE value="jpa 레파지토리 및 어댑터 구현" />
     <MESSAGE value="jpa 레파지토리 및 어댑터 구현 (customer, restaurant)" />
     <MESSAGE value="메세징 모듈 - 게시자 구현 추가하기" />
-    <option name="LAST_COMMIT_MESSAGE" value="메세징 모듈 - 게시자 구현 추가하기" />
+    <MESSAGE value="메시징 모듈 - 리스너 구현 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="메시징 모듈 - 리스너 구현 추가" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

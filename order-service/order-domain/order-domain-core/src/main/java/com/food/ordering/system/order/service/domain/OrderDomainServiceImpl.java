@@ -80,7 +80,6 @@ public class OrderDomainServiceImpl implements OrderDomainService{
             List<Product> matchingProducts = productMap.get(currentProduct.getId());
 
             if (!matchingProducts.isEmpty()) {
-                // equals() 메서드로 정확히 일치하는 제품 찾기
                 matchingProducts.stream()
                     .filter(currentProduct::equals)
                     .findFirst()
