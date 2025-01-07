@@ -4,20 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="메시징 모듈 - 주문 데이터베이스 스키마 파일 추가">
-      <change afterPath="$PROJECT_DIR$/customer-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-service/src/main/java/customer/service/CustomerServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-service/src/main/resources/init-data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-service/src/main/resources/init-schema.sql" afterDir="false" />
+    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="고객 서비스 생성 및 주문 서비스 실행">
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-container/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-dataaccess/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/entity/CreditEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/entity/CreditHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/entity/Payment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/valueobject/CreditEntryId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/valueobject/CreditHistoryId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/valueobject/PaymentId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/valueobject/TransactionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-messaging/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/docker-compose/kafka_cluster.yml" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/docker-compose/kafka_cluster.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-application/src/main/java/com/food/ordering/system/order/service/application/exception/handler/OrderGlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-application/src/main/java/com/food/ordering/system/order/service/application/exception/handler/OrderGlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-dataaccess/src/main/java/com/food/ordering/system/order/service/dataaccess/order/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-dataaccess/src/main/java/com/food/ordering/system/order/service/dataaccess/order/entity/OrderEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-dataaccess/src/main/java/com/food/ordering/system/order/service/dataaccess/order/mapper/OrderDataAccessMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-dataaccess/src/main/java/com/food/ordering/system/order/service/dataaccess/order/mapper/OrderDataAccessMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/entity/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,10 +35,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Kotlin Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -276,7 +280,7 @@
       <workItem from="1735564299282" duration="8576000" />
       <workItem from="1736255400832" duration="2068000" />
       <workItem from="1736257857381" duration="299000" />
-      <workItem from="1736258189126" duration="2506000" />
+      <workItem from="1736258189126" duration="3634000" />
     </task>
     <task id="LOCAL-00001" summary="주문 서비스 모듈 생성">
       <option name="closed" value="true" />
@@ -518,7 +522,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735573281142</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="고객 서비스 생성 및 주문 서비스 실행">
+      <option name="closed" value="true" />
+      <created>1736260767098</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1736260767098</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,7 +563,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="DDD 사용 - 주문 서비스 도메인 로직 구현" />
     <MESSAGE value="주문 엔티티 구현 메서드 추가" />
     <MESSAGE value="주문 엔티티에 상태 변경 메서드 추가" />
     <MESSAGE value="주문 서비스 도메인 계층에서 도메인 이벤트 구현" />
@@ -576,7 +587,8 @@
     <MESSAGE value="메세징 모듈 - 게시자 구현 추가하기" />
     <MESSAGE value="메시징 모듈 - 리스너 구현 추가" />
     <MESSAGE value="메시징 모듈 - 주문 데이터베이스 스키마 파일 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="메시징 모듈 - 주문 데이터베이스 스키마 파일 추가" />
+    <MESSAGE value="고객 서비스 생성 및 주문 서비스 실행" />
+    <option name="LAST_COMMIT_MESSAGE" value="고객 서비스 생성 및 주문 서비스 실행" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
