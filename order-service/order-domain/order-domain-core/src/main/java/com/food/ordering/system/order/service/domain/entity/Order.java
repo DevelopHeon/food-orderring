@@ -24,7 +24,7 @@ public class Order extends AggregateRoot<OrderId> {
     private final List<OrderItem> items;
     private TrackingId trackingId;
     private OrderStatus orderStatus;
-    private List<String> failureMessage;
+    private List<String> failureMessages;
 
     public static final String FAILURE_MESSAGE_DELIMITER = ",";
 
@@ -73,12 +73,12 @@ public class Order extends AggregateRoot<OrderId> {
     }
 
     private void updateFailureMessages(List<String> failureMessage) {
-        if (this.failureMessage != null && failureMessage != null) {
-            this.failureMessage.addAll(failureMessage.stream().filter(message -> !message.isEmpty()).toList());
+        if (this.failureMessages != null && failureMessage != null) {
+            this.failureMessages.addAll(failureMessage.stream().filter(message -> !message.isEmpty()).toList());
         }
 
-        if (this.failureMessage == null) {
-            this.failureMessage = failureMessage;
+        if (this.failureMessages == null) {
+            this.failureMessages = failureMessage;
         }
     }
 
@@ -130,7 +130,7 @@ public class Order extends AggregateRoot<OrderId> {
         items = builder.items;
         trackingId = builder.trackingId;
         orderStatus = builder.orderStatus;
-        failureMessage = builder.failureMessages;
+        failureMessages = builder.failureMessages;
     }
 
     public static Builder builder() {
@@ -166,7 +166,7 @@ public class Order extends AggregateRoot<OrderId> {
     }
 
     public List<String> getFailureMessage() {
-        return failureMessage;
+        return failureMessages;
     }
 
     public static final class Builder {
