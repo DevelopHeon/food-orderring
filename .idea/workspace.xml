@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="결제 서비스 - 도메인 코어 모듈 집계 루트, 엔티티 및 값 개체 구현">
-      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/event/PaymentCancelledEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/event/PaymentCompletedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/event/PaymentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/event/PaymentFailedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/exception/PaymentDomainException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/exception/PaymentNotFoundException.java" afterDir="false" />
+    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="결제 서비스 - 도메인 코어 모듈 예외 및 도메인 이벤트 구현">
+      <change afterPath="$PROJECT_DIR$/common/common-domain/src/main/java/com/food/ordering/system/domain/DomainConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/PaymentDomainService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/PaymentDomainServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/OrderDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/OrderDomainServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/entity/CreditEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/entity/CreditEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/entity/CreditHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/entity/CreditHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/entity/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/event/PaymentCancelledEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/event/PaymentCancelledEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/event/PaymentCompletedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/src/main/java/payment/service/domain/event/PaymentCompletedEvent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -269,7 +272,7 @@
       <workItem from="1735564299282" duration="8576000" />
       <workItem from="1736255400832" duration="2068000" />
       <workItem from="1736257857381" duration="299000" />
-      <workItem from="1736258189126" duration="3903000" />
+      <workItem from="1736258189126" duration="6078000" />
     </task>
     <task id="LOCAL-00001" summary="주문 서비스 모듈 생성">
       <option name="closed" value="true" />
@@ -527,7 +530,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736261935431</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="결제 서비스 - 도메인 코어 모듈 예외 및 도메인 이벤트 구현">
+      <option name="closed" value="true" />
+      <created>1736262146054</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1736262146054</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +571,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="주문 엔티티에 상태 변경 메서드 추가" />
     <MESSAGE value="주문 서비스 도메인 계층에서 도메인 이벤트 구현" />
     <MESSAGE value="주문 도메인 서비스 구현" />
     <MESSAGE value="DTO 클래스 구현" />
@@ -585,7 +595,8 @@
     <MESSAGE value="메시징 모듈 - 주문 데이터베이스 스키마 파일 추가" />
     <MESSAGE value="고객 서비스 생성 및 주문 서비스 실행" />
     <MESSAGE value="결제 서비스 - 도메인 코어 모듈 집계 루트, 엔티티 및 값 개체 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="결제 서비스 - 도메인 코어 모듈 집계 루트, 엔티티 및 값 개체 구현" />
+    <MESSAGE value="결제 서비스 - 도메인 코어 모듈 예외 및 도메인 이벤트 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="결제 서비스 - 도메인 코어 모듈 예외 및 도메인 이벤트 구현" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

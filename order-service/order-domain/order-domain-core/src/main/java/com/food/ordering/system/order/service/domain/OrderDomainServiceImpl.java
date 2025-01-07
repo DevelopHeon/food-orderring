@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static com.food.ordering.system.domain.DomainConstants.UTC;
+
 /**
  * @author sony
  * @description
@@ -24,8 +26,6 @@ import java.util.stream.Collectors;
  **********************************************************************************************************************/
 @Slf4j
 public class OrderDomainServiceImpl implements OrderDomainService{
-
-    private static final String UTC = "UTC";
 
     @Override
     public OrderCreatedEvent validateAndInitiateOrder(Order order, Restaurant restaurant) {
