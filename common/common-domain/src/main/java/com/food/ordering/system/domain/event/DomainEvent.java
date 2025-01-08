@@ -6,4 +6,5 @@ package com.food.ordering.system.domain.event;
  * @description
  **********************************************************************************************************************/
 public interface DomainEvent<T> {
+    void fire();
 }
