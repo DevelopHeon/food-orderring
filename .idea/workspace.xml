@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="결제 서비스 - 데이터 액세스 모듈 구현">
-      <change afterPath="$PROJECT_DIR$/payment-service/payment-messaging/src/main/java/com/food/ordering/system/payment/service/messaging/mapper/PaymentMessagingDataMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/payment-messaging/src/main/java/com/food/ordering/system/payment/service/messaging/publisher/kafka/PaymentCancelledKafkaMessagePublisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/payment-messaging/src/main/java/com/food/ordering/system/payment/service/messaging/publisher/kafka/PaymentCompletedKafkaMessagePublisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/payment-messaging/src/main/java/com/food/ordering/system/payment/service/messaging/publisher/kafka/PaymentFailedKafkaMessagePublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/publisher/kafka/CancelOrderKafkaMessagePublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/publisher/kafka/CancelOrderKafkaMessagePublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/publisher/kafka/CreateOrderKafkaMessagePublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/publisher/kafka/CreateOrderKafkaMessagePublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/publisher/kafka/OrderKafkaMessageHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/kafka/kafka-producer/src/main/java/com/food/ordering/system/kafka/producer/KafkaMessageHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/publisher/kafka/PayOrderKafkaMessagePublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/publisher/kafka/PayOrderKafkaMessagePublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/payment-messaging/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/payment-messaging/pom.xml" afterDir="false" />
+    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="결제 서비스 - 메시징 모듈 구현 (매퍼 및 publisher 추가)">
+      <change afterPath="$PROJECT_DIR$/payment-service/payment-messaging/src/main/java/com/food/ordering/system/payment/service/messaging/listener/kafka/PaymentRequestKafkaListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +272,7 @@
       <workItem from="1736257857381" duration="299000" />
       <workItem from="1736258189126" duration="6337000" />
       <workItem from="1736346672699" duration="5518000" />
-      <workItem from="1736476738240" duration="4516000" />
+      <workItem from="1736476738240" duration="4830000" />
     </task>
     <task id="LOCAL-00001" summary="주문 서비스 모듈 생성">
       <option name="closed" value="true" />
@@ -595,7 +586,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736676791282</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="결제 서비스 - 메시징 모듈 구현 (매퍼 및 publisher 추가)">
+      <option name="closed" value="true" />
+      <created>1736679224951</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1736679224951</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,7 +627,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Publish with transactional listener" />
     <MESSAGE value="주문 추적 명령 핸들러 구현" />
     <MESSAGE value="주문 서비스 도메인 로직 테스트" />
     <MESSAGE value="Docker을 이용하여 Apache kafka 실행" />
@@ -653,7 +651,8 @@
     <MESSAGE value="결제 서비스 - 애플리케이션 서비스 도메인 모듈 입력 포트 구현2" />
     <MESSAGE value="결제 서비스 - 애플리케이션 서비스 도메인 모듈 파이어 이벤트 프로세스 리팩토링" />
     <MESSAGE value="결제 서비스 - 데이터 액세스 모듈 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="결제 서비스 - 데이터 액세스 모듈 구현" />
+    <MESSAGE value="결제 서비스 - 메시징 모듈 구현 (매퍼 및 publisher 추가)" />
+    <option name="LAST_COMMIT_MESSAGE" value="결제 서비스 - 메시징 모듈 구현 (매퍼 및 publisher 추가)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
