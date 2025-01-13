@@ -20,10 +20,11 @@ public class OrderDetail extends BaseEntity<OrderId> {
 
     private OrderDetail(Builder builder) {
         setId(builder.orderId);
-        orderStatus = builder.order;
+        orderStatus = builder.orderStatus;
         totalAmount = builder.totalAmount;
         products = builder.products;
     }
+
 
     public static Builder builder() {
         return new Builder();
@@ -43,20 +44,20 @@ public class OrderDetail extends BaseEntity<OrderId> {
 
     public static final class Builder {
         private OrderId orderId;
-        private OrderStatus order;
+        private OrderStatus orderStatus;
         private Money totalAmount;
         private List<Product> products;
 
         private Builder() {
         }
 
-        public Builder id(OrderId val) {
+        public Builder orderId(OrderId val) {
             orderId = val;
             return this;
         }
 
-        public Builder order(OrderStatus val) {
-            order = val;
+        public Builder orderStatus(OrderStatus val) {
+            orderStatus = val;
             return this;
         }
 

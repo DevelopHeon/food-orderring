@@ -74,17 +74,17 @@ public class Restaurant extends AggregateRoot<RestaurantId> {
     public OrderDetail getOrderDetail() {
         return orderDetail;
     }
+
     public static final class Builder {
         private RestaurantId restaurantId;
         private OrderApproval orderApproval;
         private boolean active;
-
         private OrderDetail orderDetail;
 
         private Builder() {
         }
 
-        public Builder id(RestaurantId val) {
+        public Builder restaurantId(RestaurantId val) {
             restaurantId = val;
             return this;
         }
