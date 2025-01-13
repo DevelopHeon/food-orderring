@@ -22,7 +22,6 @@ import static com.food.ordering.system.domain.DomainConstants.UTC;
 @Slf4j
 public class RestaurantDomainServiceImpl implements RestaurantDomainService{
 
-
     @Override
     public OrderApprovalEvent validateOrder(Restaurant restaurant,
                                             List<String> failureMessages,
