@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="레스토랑 서비스 - 도메인 코어 모듈 입력 포트 구현">
-      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/src/main/java/com/food/ordering/system/restaurant/service/dataaccess/restaurant/adapter/OrderApprovalRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/src/main/java/com/food/ordering/system/restaurant/service/dataaccess/restaurant/adapter/RestaurantRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/src/main/java/com/food/ordering/system/restaurant/service/dataaccess/restaurant/entity/OrderApprovalEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/src/main/java/com/food/ordering/system/restaurant/service/dataaccess/restaurant/mapper/RestaurantDataAccessMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/src/main/java/com/food/ordering/system/restaurant/service/dataaccess/restaurant/repository/OrderApprovalJpaRepository.java" afterDir="false" />
+    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="레스토랑 서비스 - 데이터 액세스 모듈 구현하기4d9e45f">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/payment-domain/payment-application-service/src/main/java/com/food/ordering/system/payment/service/mapper/PaymentDataMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/payment-domain/payment-application-service/src/main/java/com/food/ordering/system/payment/service/mapper/PaymentDataMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +99,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "/Users/gimhuiheon/Documents/study/microservices/food-ordering-system/food-ordering-system/payment-service/payment-dataaccess/src/main/java/com/food/ordering/system/payment/service/dataaccess",
+    "last_opened_file_path": "/Users/gimhuiheon/Documents/study/microservices/food-ordering-system/food-ordering-system/common/common-dataaccess/src/main/java/com/food/ordering/system/dataaccess/restaurant/entity",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -114,7 +109,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "configuration.execution",
-    "spring.configuration.checksum": "bf33872d6544fd20c7f69b5e3093ee18",
+    "spring.configuration.checksum": "baf9eeae30cd3f3de97a897e50edd731",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -133,17 +128,18 @@
       <recent name="com.food.ordering.system.order.service.application.exception.handler" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common/common-dataaccess/src/main/java/com/food/ordering/system/dataaccess/restaurant/entity" />
       <recent name="$PROJECT_DIR$/payment-service/payment-dataaccess/src/main/java/com/food/ordering/system/payment/service/dataaccess" />
       <recent name="$PROJECT_DIR$/order-service/order-dataaccess/src/main/java/com/food/ordering/system/order/service/dataaccess/restaurant" />
       <recent name="$PROJECT_DIR$/order-service/order-dataaccess/src/main/java/com/food/ordering/system/order/service/dataaccess/customer" />
       <recent name="$PROJECT_DIR$/infrastructure/kafka/kafka-model/src/main/resources/avro" />
-      <recent name="$PROJECT_DIR$/infrastructure/kafka/kafka-config-data/src/main/java/com/food/ordering/system/kafka/config/data" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.food.ordering.system.dataaccess.restaurant.repository" />
+      <recent name="com.food.ordering.system.dataaccess.restaurant.exception" />
       <recent name="com.food.ordering.restaurant.service.domain.event" />
       <recent name="com.food.ordering.system.payment.service.messaging.publisher.kafka" />
       <recent name="com.food.ordering.system.kafka.producer" />
-      <recent name="com.food.ordering.system.payment.service.domain.ports.output.message.publisher" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -151,9 +147,9 @@
       <command value="mvn compileJava" />
       <command value="mvn clean" />
       <command value="rm -rf ~/.m2/repository/com/food/ordering/system/ " />
-      <command value="mvn clean install -U" />
       <command value="mvn clean build" />
       <command value="mvn clean install" />
+      <command value="mvn clean install -U" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -248,6 +244,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PaymentServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="payment-container" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.food.ordering.system.payment.service.domain.domain.PaymentServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PaymentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="payment-container" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.food.ordering.system.payment.service.domain.PaymentServiceApplication" />
@@ -288,6 +291,7 @@
       <workItem from="1736346672699" duration="5518000" />
       <workItem from="1736476738240" duration="5130000" />
       <workItem from="1736764950652" duration="7520000" />
+      <workItem from="1736866418856" duration="4734000" />
     </task>
     <task id="LOCAL-00001" summary="주문 서비스 모듈 생성">
       <option name="closed" value="true" />
@@ -657,7 +661,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736771509451</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="레스토랑 서비스 - 데이터 액세스 모듈 구현하기">
+      <option name="closed" value="true" />
+      <created>1736866737376</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1736866737376</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -690,7 +702,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="kafka 소비자 일반 모듈 구현" />
     <MESSAGE value="애플리케이션 웹 컨트롤러 구현" />
     <MESSAGE value="애플리케이션 전역 예외 핸들러 구현" />
     <MESSAGE value="Order jpa entity 구현" />
@@ -715,7 +726,8 @@
     <MESSAGE value="레스토랑 서비스 - 도메인 코어 모듈 예외 및 도메인 서비스 구현" />
     <MESSAGE value="레스토랑 서비스 - 도메인 코어 모듈 매퍼 DTO 및 포트 구현" />
     <MESSAGE value="레스토랑 서비스 - 도메인 코어 모듈 입력 포트 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="레스토랑 서비스 - 도메인 코어 모듈 입력 포트 구현" />
+    <MESSAGE value="레스토랑 서비스 - 데이터 액세스 모듈 구현하기" />
+    <option name="LAST_COMMIT_MESSAGE" value="레스토랑 서비스 - 데이터 액세스 모듈 구현하기" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

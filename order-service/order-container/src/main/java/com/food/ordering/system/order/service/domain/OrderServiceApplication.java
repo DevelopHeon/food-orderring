@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @description
  * @since 2024.12.30
  **********************************************************************************************************************/
-@EnableJpaRepositories(basePackages = "com.food.ordering.system.order.service.dataaccess")
-@EntityScan(basePackages = "com.food.ordering.system.order.service.dataaccess")
+@EnableJpaRepositories(basePackages = {"com.food.ordering.system.order.service.dataaccess", "com.food.ordering.system.dataaccess"})
+@EntityScan(basePackages = { "com.food.ordering.system.order.service.dataaccess", "com.food.ordering.system.dataaccess" })
 @SpringBootApplication(scanBasePackages = "com.food.ordering.system")
 public class OrderServiceApplication {
 

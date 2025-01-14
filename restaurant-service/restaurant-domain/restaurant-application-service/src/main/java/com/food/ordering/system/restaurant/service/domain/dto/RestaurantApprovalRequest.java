@@ -1,6 +1,6 @@
 package com.food.ordering.system.restaurant.service.domain.dto;
 
-import com.food.ordering.restaurant.service.domain.entity.Product;
+import com.food.ordering.system.restaurant.service.domain.entity.Product;
 import com.food.ordering.system.domain.valueobject.RestaurantOrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

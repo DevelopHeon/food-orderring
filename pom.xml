@@ -89,7 +89,7 @@
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>restaurant-application-service</artifactId>
-                <version>${proejct.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
@@ -109,6 +109,11 @@
             <dependency>
                 <groupId>org.food.ordering.system</groupId>
                 <artifactId>common-application</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>common-dataaccess</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
