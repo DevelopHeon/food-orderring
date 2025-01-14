@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="레스토랑 서비스 - 도메인 코어 모듈 매퍼 DTO 및 포트 구현">
-      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-application-service/src/main/java/com/food/ordering/system/restaurant/service/domain/RestaurantApprovalRequestHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-application-service/src/main/java/com/food/ordering/system/restaurant/service/domain/RestaurantApprovalRequestMessageListenerImpl.java" afterDir="false" />
+    <list default="true" id="5c5d5274-76cd-4d52-9d40-6b8e3874ae98" name="Changes" comment="레스토랑 서비스 - 도메인 코어 모듈 입력 포트 구현">
+      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/src/main/java/com/food/ordering/system/restaurant/service/dataaccess/restaurant/adapter/OrderApprovalRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/src/main/java/com/food/ordering/system/restaurant/service/dataaccess/restaurant/adapter/RestaurantRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/src/main/java/com/food/ordering/system/restaurant/service/dataaccess/restaurant/entity/OrderApprovalEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/src/main/java/com/food/ordering/system/restaurant/service/dataaccess/restaurant/mapper/RestaurantDataAccessMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/src/main/java/com/food/ordering/system/restaurant/service/dataaccess/restaurant/repository/OrderApprovalJpaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-application-service/src/main/java/com/food/ordering/system/restaurant/service/domain/mapper/RestaurantDataMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-application-service/src/main/java/com/food/ordering/system/restaurant/service/domain/mapper/RestaurantDataMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-application-service/src/main/java/com/food/ordering/system/restaurant/service/domain/ports/output/message/publisher/OrderApprovalMessagePublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-application-service/src/main/java/com/food/ordering/system/restaurant/service/domain/ports/output/message/publisher/OrderApprovedMessagePublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-domain-core/src/main/java/com/food/ordering/restaurant/service/domain/entity/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-domain-core/src/main/java/com/food/ordering/restaurant/service/domain/entity/OrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-domain-core/src/main/java/com/food/ordering/restaurant/service/domain/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-domain-core/src/main/java/com/food/ordering/restaurant/service/domain/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-domain-core/src/main/java/com/food/ordering/restaurant/service/domain/entity/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant-service/restaurant-domain/restaurant-domain-core/src/main/java/com/food/ordering/restaurant/service/domain/entity/Restaurant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +27,8 @@
         <option value="Kotlin Class" />
         <option value="Record" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -288,7 +287,7 @@
       <workItem from="1736258189126" duration="6337000" />
       <workItem from="1736346672699" duration="5518000" />
       <workItem from="1736476738240" duration="5130000" />
-      <workItem from="1736764950652" duration="6510000" />
+      <workItem from="1736764950652" duration="7520000" />
     </task>
     <task id="LOCAL-00001" summary="주문 서비스 모듈 생성">
       <option name="closed" value="true" />
@@ -650,7 +649,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736770060442</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="레스토랑 서비스 - 도메인 코어 모듈 입력 포트 구현">
+      <option name="closed" value="true" />
+      <created>1736771509451</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1736771509451</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -683,7 +690,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="kafka 생산자 일반 모듈 구현" />
     <MESSAGE value="kafka 소비자 일반 모듈 구현" />
     <MESSAGE value="애플리케이션 웹 컨트롤러 구현" />
     <MESSAGE value="애플리케이션 전역 예외 핸들러 구현" />
@@ -708,7 +714,8 @@
     <MESSAGE value="레스토랑 서비스 - 도메인 코어 모듈 집계 루트 및 엔티티 구현" />
     <MESSAGE value="레스토랑 서비스 - 도메인 코어 모듈 예외 및 도메인 서비스 구현" />
     <MESSAGE value="레스토랑 서비스 - 도메인 코어 모듈 매퍼 DTO 및 포트 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="레스토랑 서비스 - 도메인 코어 모듈 매퍼 DTO 및 포트 구현" />
+    <MESSAGE value="레스토랑 서비스 - 도메인 코어 모듈 입력 포트 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="레스토랑 서비스 - 도메인 코어 모듈 입력 포트 구현" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
