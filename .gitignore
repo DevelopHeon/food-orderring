@@ -1,0 +1,10 @@
+# Kafka volumes
+infrastructure/docker-compose/volumes/kafka/
+*.kafka_cleanshutdown
+*.lock
+*.index
+
+# 일반적인 시스템 파일
+.DS_Store
+.idea/
+*.iml
