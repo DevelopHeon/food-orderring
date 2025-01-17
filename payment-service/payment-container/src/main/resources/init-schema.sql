@@ -4,7 +4,9 @@ CREATE SCHEMA payment;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TYPE payment_status AS ENUM ('COMPLETED', 'CANCELLED', 'FAILED')
+DROP TYPE IF EXISTS payment_status;
+
+CREATE TYPE payment_status AS ENUM ('COMPLETED', 'CANCELLED', 'FAILED');
 
 DROP TABLE IF EXISTS "payment".payments CASCADE;
 

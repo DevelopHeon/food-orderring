@@ -14,11 +14,6 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 import javax.annotation.PreDestroy;
 import java.io.Serializable;
 
-/**
- * @author sony
- * @description
- * @since 2024.12.24
- **********************************************************************************************************************/
 @Slf4j
 @Component
 public class KafkaProducerImpl<K extends Serializable, V extends SpecificRecordBase> implements KafkaProducer<K, V> {
@@ -35,9 +30,9 @@ public class KafkaProducerImpl<K extends Serializable, V extends SpecificRecordB
         try {
             ListenableFuture<SendResult<K, V>> kafkaResultFuture = kafkaTemplate.send(topicName, key, message);
             kafkaResultFuture.addCallback(callback);
-            // 콜백 사용 이유는 send 메서드는 비차단 비동기 호출이므로 바로 호출 대신 나중에 비동기식으로 호출할 콜백 메서드가 필요함
         } catch (KafkaException e) {
-            log.error("Error on kafka producer with key: {}, message: {} and exception: {}", key, message, e.getMessage());
+            log.error("Error on kafka producer with key: {}, message: {} and exception: {}", key, message,
+                    e.getMessage());
             throw new KafkaProducerException("Error on kafka producer with key: " + key + " and message: " + message);
         }
     }
