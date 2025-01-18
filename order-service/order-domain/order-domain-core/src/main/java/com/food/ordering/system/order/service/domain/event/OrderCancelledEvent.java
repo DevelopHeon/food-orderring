@@ -10,11 +10,11 @@ import java.time.ZonedDateTime;
  * @description
  * @since 2024.12.14
  **********************************************************************************************************************/
-public class OrderCanceledEvent extends OrderEvent {
+public class OrderCancelledEvent extends OrderEvent {
 
-    private final DomainEventPublisher<OrderCanceledEvent> orderCanceledEventDomainEventPublisher;
+    private final DomainEventPublisher<OrderCancelledEvent> orderCanceledEventDomainEventPublisher;
 
-    public OrderCanceledEvent(Order order, ZonedDateTime createdAt, DomainEventPublisher<OrderCanceledEvent> orderCanceledEventDomainEventPublisher) {
+    public OrderCancelledEvent(Order order, ZonedDateTime createdAt, DomainEventPublisher<OrderCancelledEvent> orderCanceledEventDomainEventPublisher) {
         super(order, createdAt);
         this.orderCanceledEventDomainEventPublisher = orderCanceledEventDomainEventPublisher;
     }
