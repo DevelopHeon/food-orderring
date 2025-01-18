@@ -14,11 +14,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-/**
- * @author sony
- * @description
- * @since 2024.12.30
- **********************************************************************************************************************/
 @Slf4j
 @Component
 public class PaymentResponseKafkaListener implements KafkaConsumer<PaymentResponseAvroModel> {
@@ -26,20 +21,19 @@ public class PaymentResponseKafkaListener implements KafkaConsumer<PaymentRespon
     private final PaymentResponseMessageListener paymentResponseMessageListener;
     private final OrderMessagingDataMapper orderMessagingDataMapper;
 
-    public PaymentResponseKafkaListener(PaymentResponseMessageListener paymentResponseMessageListener, OrderMessagingDataMapper orderMessagingDataMapper) {
+    public PaymentResponseKafkaListener(PaymentResponseMessageListener paymentResponseMessageListener,
+                                        OrderMessagingDataMapper orderMessagingDataMapper) {
         this.paymentResponseMessageListener = paymentResponseMessageListener;
         this.orderMessagingDataMapper = orderMessagingDataMapper;
     }
 
-    @KafkaListener(
-        id = "${kafka-consumer-config.payment-consumer-group-id}",
-        topics = "${order-service.payment-response-topic-name}"
-    )
+    @Override
+    @KafkaListener(id = "${kafka-consumer-config.payment-consumer-group-id}", topics = "${order-service.payment-response-topic-name}")
     public void receive(@Payload List<PaymentResponseAvroModel> messages,
                         @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) List<String> keys,
                         @Header(KafkaHeaders.RECEIVED_PARTITION_ID) List<Integer> partitions,
                         @Header(KafkaHeaders.OFFSET) List<Long> offsets) {
-        log.info("{} number of payment responses received with keys: {}, partitions: {} and offsets: {}",
+        log.info("{} number of payment responses received with keys:{}, partitions:{} and offsets: {}",
                 messages.size(),
                 keys.toString(),
                 partitions.toString(),
@@ -48,11 +42,12 @@ public class PaymentResponseKafkaListener implements KafkaConsumer<PaymentRespon
         messages.forEach(paymentResponseAvroModel -> {
             if (PaymentStatus.COMPLETED == paymentResponseAvroModel.getPaymentStatus()) {
                 log.info("Processing successful payment for order id: {}", paymentResponseAvroModel.getOrderId());
-                paymentResponseMessageListener.paymentCompleted(orderMessagingDataMapper.paymentResponseAvroModelToPaymentResponse(paymentResponseAvroModel));
-            } else if (PaymentStatus.CANCELLED == paymentResponseAvroModel.getPaymentStatus() ||
-            PaymentStatus.FAILED == paymentResponseAvroModel.getPaymentStatus()) {
-                log.info("Processing unsuccessful payment for order id: {}", paymentResponseAvroModel.getOrderId());
                 paymentResponseMessageListener.paymentCompleted(orderMessagingDataMapper
+                        .paymentResponseAvroModelToPaymentResponse(paymentResponseAvroModel));
+            } else if (PaymentStatus.CANCELLED == paymentResponseAvroModel.getPaymentStatus() ||
+                    PaymentStatus.FAILED == paymentResponseAvroModel.getPaymentStatus()) {
+                log.info("Processing unsuccessful payment for order id: {}", paymentResponseAvroModel.getOrderId());
+                paymentResponseMessageListener.paymentCancelled(orderMessagingDataMapper
                         .paymentResponseAvroModelToPaymentResponse(paymentResponseAvroModel));
             }
         });

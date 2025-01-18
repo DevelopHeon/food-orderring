@@ -1,4 +1,4 @@
-package com.food.ordering.system.payment.service.domain.messaging.mapper;
+package com.food.ordering.system.payment.service.messaging.mapper;
 
 import com.food.ordering.system.domain.valueobject.PaymentOrderStatus;
 import com.food.ordering.system.kafka.order.avro.model.PaymentRequestAvroModel;

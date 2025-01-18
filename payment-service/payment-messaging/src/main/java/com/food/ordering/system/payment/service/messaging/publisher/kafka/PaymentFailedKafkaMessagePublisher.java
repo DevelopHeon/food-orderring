@@ -1,12 +1,12 @@
-package com.food.ordering.system.payment.service.domain.messaging.publisher.kafka;
+package com.food.ordering.system.payment.service.messaging.publisher.kafka;
 
 import com.food.ordering.system.kafka.order.avro.model.PaymentResponseAvroModel;
 import com.food.ordering.system.kafka.producer.KafkaMessageHelper;
 import com.food.ordering.system.kafka.producer.service.KafkaProducer;
 import com.food.ordering.system.payment.service.domain.config.PaymentServiceConfigData;
-import com.food.ordering.system.payment.service.domain.messaging.mapper.PaymentMessagingDataMapper;
-import com.food.ordering.system.payment.service.domain.ports.output.message.publisher.PaymentCancelledMessagePublisher;
-import com.food.ordering.system.payment.service.domain.event.PaymentCancelledEvent;
+import com.food.ordering.system.payment.service.domain.event.PaymentFailedEvent;
+import com.food.ordering.system.payment.service.messaging.mapper.PaymentMessagingDataMapper;
+import com.food.ordering.system.payment.service.domain.ports.output.message.publisher.PaymentFailedMessagePublisher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -17,17 +17,17 @@ import org.springframework.stereotype.Component;
  **********************************************************************************************************************/
 @Slf4j
 @Component
-public class PaymentCancelledKafkaMessagePublisher implements PaymentCancelledMessagePublisher {
+public class PaymentFailedKafkaMessagePublisher implements PaymentFailedMessagePublisher {
 
     private final PaymentMessagingDataMapper paymentMessagingDataMapper;
     private final KafkaProducer<String, PaymentResponseAvroModel> kafkaProducer;
     private final PaymentServiceConfigData paymentServiceConfigData;
     private final KafkaMessageHelper kafkaMessageHelper;
 
-    public PaymentCancelledKafkaMessagePublisher(PaymentMessagingDataMapper paymentMessagingDataMapper,
-                                                 KafkaProducer<String, PaymentResponseAvroModel> kafkaProducer,
-                                                 PaymentServiceConfigData paymentServiceConfigData,
-                                                 KafkaMessageHelper kafkaMessageHelper) {
+    public PaymentFailedKafkaMessagePublisher(PaymentMessagingDataMapper paymentMessagingDataMapper,
+                                              KafkaProducer<String, PaymentResponseAvroModel> kafkaProducer,
+                                              PaymentServiceConfigData paymentServiceConfigData,
+                                              KafkaMessageHelper kafkaMessageHelper) {
         this.paymentMessagingDataMapper = paymentMessagingDataMapper;
         this.kafkaProducer = kafkaProducer;
         this.paymentServiceConfigData = paymentServiceConfigData;
@@ -35,14 +35,14 @@ public class PaymentCancelledKafkaMessagePublisher implements PaymentCancelledMe
     }
 
     @Override
-    public void publish(PaymentCancelledEvent domainEvent) {
+    public void publish(PaymentFailedEvent domainEvent) {
         String orderId = domainEvent.getPayment().getOrderId().getValue().toString();
 
-        log.info("Received PaymentCancelledEvent for order id : {}", orderId);
+        log.info("Received PaymentFailedEvent for order id : {}", orderId);
 
         try {
             PaymentResponseAvroModel paymentResponseAvroModel =
-                    paymentMessagingDataMapper.paymentCancelledEventToPaymentResponseAvroModel(domainEvent);
+                    paymentMessagingDataMapper.paymentFailledEventToPaymentResponseAvroModel(domainEvent);
 
             kafkaProducer.send(paymentServiceConfigData.getPaymentRequestTopicName(),
                     orderId,
