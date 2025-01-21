@@ -17,19 +17,18 @@ import static com.food.ordering.system.order.service.domain.entity.Order.FAILURE
 @Slf4j
 @Validated
 @Service
-public class paymentResponseMessageListenerImpl implements PaymentResponseMessageListener {
+public class PaymentResponseMessageListenerImpl implements PaymentResponseMessageListener {
 
     private final OrderPaymentSaga orderPaymentSaga;
 
-    public paymentResponseMessageListenerImpl(OrderPaymentSaga orderPaymentSaga) {
+    public PaymentResponseMessageListenerImpl(OrderPaymentSaga orderPaymentSaga) {
         this.orderPaymentSaga = orderPaymentSaga;
     }
 
     @Override
     public void paymentCompleted(PaymentResponse paymentResponse) {
-        OrderPaidEvent domainEvent = orderPaymentSaga.process(paymentResponse);
-        log.info("Publishing OrderPaidEvent for order id : {} ", paymentResponse.getOrderId());
-        domainEvent.fire();
+        orderPaymentSaga.process(paymentResponse);
+        log.info("Order Payment Saga process operation is completed for order id : {} ", paymentResponse.getOrderId());
     }
 
     @Override

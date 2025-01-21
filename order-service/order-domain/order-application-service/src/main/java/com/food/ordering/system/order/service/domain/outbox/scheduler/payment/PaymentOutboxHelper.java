@@ -45,8 +45,7 @@ public class PaymentOutboxHelper {
     }
 
     @Transactional(readOnly = true)
-    public Optional<OrderPaymentOutboxMessage> getPaymentOutboxMessageBySagaIdAndOutboxStatus(UUID sagaId,
-                                                                                              SagaStatus... sagaStatus) {
+    public Optional<OrderPaymentOutboxMessage> getPaymentOutboxMessageBySagaIdAndSagaStatus(UUID sagaId, SagaStatus... sagaStatus) {
         return paymentOutboxRepository.findByTypeAndSagaIdAndSagaStatus(ORDER_SAGA_NAME, sagaId, sagaStatus);
     }
 
