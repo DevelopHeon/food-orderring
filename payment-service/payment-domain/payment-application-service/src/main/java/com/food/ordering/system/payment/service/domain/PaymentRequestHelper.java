@@ -37,40 +37,31 @@ public class PaymentRequestHelper {
     private final PaymentRepository paymentRepository;
     private final CreditEntryRepository creditEntryRepository;
     private final CreditHistoryRepository creditHistoryRepository;
-    private final PaymentCompletedMessagePublisher paymentCompletedEventDomainEventPublisher;
-    private final PaymentCancelledMessagePublisher paymentCancelledEventDomainEventPublisher;
-    private final PaymentFailedMessagePublisher paymentFailedEventDomainEventPublisher;
 
 
     public PaymentRequestHelper(PaymentDomainService paymentDomainService,
                                 PaymentDataMapper paymentDataMapper,
                                 PaymentRepository paymentRepository,
                                 CreditEntryRepository creditEntryRepository,
-                                CreditHistoryRepository creditHistoryRepository,
-                                PaymentCompletedMessagePublisher paymentCompletedEventDomainEventPublisher,
-                                PaymentCancelledMessagePublisher paymentCancelledEventDomainEventPublisher,
-                                PaymentFailedMessagePublisher paymentFailedEventDomainEventPublisher) {
+                                CreditHistoryRepository creditHistoryRepository) {
         this.paymentDomainService = paymentDomainService;
         this.paymentDataMapper = paymentDataMapper;
         this.paymentRepository = paymentRepository;
         this.creditEntryRepository = creditEntryRepository;
         this.creditHistoryRepository = creditHistoryRepository;
-        this.paymentCompletedEventDomainEventPublisher = paymentCompletedEventDomainEventPublisher;
-        this.paymentCancelledEventDomainEventPublisher = paymentCancelledEventDomainEventPublisher;
-        this.paymentFailedEventDomainEventPublisher = paymentFailedEventDomainEventPublisher;
+
     }
 
     @Transactional
-    public PaymentEvent persistPayment(PaymentRequest paymentRequest) {
+    public void persistPayment(PaymentRequest paymentRequest) {
         log.info("Received payment complete event for order id: {}", paymentRequest.getOrderId());
         Payment payment = paymentDataMapper.paymentRequestModelToPayment(paymentRequest);
-        return processPayment(payment, (p, creditEntry, creditHistories, failureMessages)
-                -> paymentDomainService.validateAndInitiatePayment(p, creditEntry, creditHistories, failureMessages,
-                paymentCompletedEventDomainEventPublisher, paymentFailedEventDomainEventPublisher));
+        processPayment(payment, (p, creditEntry, creditHistories, failureMessages)
+                -> paymentDomainService.validateAndInitiatePayment(p, creditEntry, creditHistories, failureMessages));
     }
 
     @Transactional
-    public PaymentEvent persistCancelPayment(PaymentRequest paymentRequest) {
+    public void persistCancelPayment(PaymentRequest paymentRequest) {
         log.info("Received payment rollback event for order id: {}", paymentRequest.getOrderId());
         Optional<Payment> paymentResponse = paymentRepository
                 .findByOrderId(UUID.fromString(paymentRequest.getOrderId()));
@@ -82,9 +73,8 @@ public class PaymentRequestHelper {
         }
 
         Payment payment = paymentResponse.get();
-        return processPayment(payment, (payment1, creditEntry, creditHistories, failureMessages)
-                -> paymentDomainService.validateAndCancelPayment(payment1, creditEntry, creditHistories, failureMessages,
-                paymentCancelledEventDomainEventPublisher, paymentFailedEventDomainEventPublisher));
+        processPayment(payment, (payment1, creditEntry, creditHistories, failureMessages)
+                -> paymentDomainService.validateAndCancelPayment(payment1, creditEntry, creditHistories, failureMessages));
     }
 
     private PaymentEvent processPayment(Payment payment,
