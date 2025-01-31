@@ -28,7 +28,7 @@ import static com.food.ordering.system.order.service.domain.entity.Order.FAILURE
 public class RestaurantApprovalResponseKafkaListener implements KafkaConsumer<RestaurantApprovalResponseAvroModel> {
 
     private final RestaurantApprovalResponseMessageListener restaurantApprovalResponseMessageListener;
-    private OrderMessagingDataMapper orderMessagingDataMapper;
+    private final OrderMessagingDataMapper orderMessagingDataMapper;
 
     public RestaurantApprovalResponseKafkaListener(RestaurantApprovalResponseMessageListener restaurantApprovalResponseMessageListener, OrderMessagingDataMapper orderMessagingDataMapper) {
         this.restaurantApprovalResponseMessageListener = restaurantApprovalResponseMessageListener;
