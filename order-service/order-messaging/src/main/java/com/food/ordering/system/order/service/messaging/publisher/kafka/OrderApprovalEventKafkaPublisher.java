@@ -1,7 +1,5 @@
 package com.food.ordering.system.order.service.messaging.publisher.kafka;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.food.ordering.system.kafka.order.avro.model.PaymentRequestAvroModel;
 import com.food.ordering.system.kafka.order.avro.model.RestaurantApprovalRequestAvroModel;
 import com.food.ordering.system.kafka.producer.KafkaMessageHelper;
 import com.food.ordering.system.kafka.producer.service.KafkaProducer;
@@ -45,7 +43,7 @@ public class OrderApprovalEventKafkaPublisher implements RestaurantApprovalReque
                         BiConsumer<OrderApprovalOutboxMessage, OutboxStatus> outboxCallback) {
 
         OrderApprovalEventPayload orderApprovalEventPayload =
-                kafkaMessageHelper.getOrderPaymentEventPayload(orderApprovalOutboxMessage.getPayload(),
+                kafkaMessageHelper.getOrderEventPayload(orderApprovalOutboxMessage.getPayload(),
                         OrderApprovalEventPayload.class);
 
         String sagaId = orderApprovalOutboxMessage.getSagaId().toString();
