@@ -1,22 +1,18 @@
 package com.food.ordering.system.order.service.domain.mapper;
 
 import com.food.ordering.system.domain.valueobject.*;
-import com.food.ordering.system.order.service.domain.OrderCreateHelper;
 import com.food.ordering.system.order.service.domain.dto.create.CreateOrderCommand;
 import com.food.ordering.system.order.service.domain.dto.create.CreateOrderResponse;
 import com.food.ordering.system.order.service.domain.dto.create.OrderAddress;
+import com.food.ordering.system.order.service.domain.dto.message.CustomerModel;
 import com.food.ordering.system.order.service.domain.dto.track.TrackOrderResponse;
-import com.food.ordering.system.order.service.domain.entity.Order;
-import com.food.ordering.system.order.service.domain.entity.OrderItem;
-import com.food.ordering.system.order.service.domain.entity.Product;
-import com.food.ordering.system.order.service.domain.entity.Restaurant;
+import com.food.ordering.system.order.service.domain.entity.*;
 import com.food.ordering.system.order.service.domain.event.OrderCancelledEvent;
 import com.food.ordering.system.order.service.domain.event.OrderCreatedEvent;
 import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
 import com.food.ordering.system.order.service.domain.outbox.model.approval.OrderApprovalEventPayload;
 import com.food.ordering.system.order.service.domain.outbox.model.approval.OrderApprovalEventProduct;
 import com.food.ordering.system.order.service.domain.outbox.model.payment.OrderPaymentEventPayload;
-import com.food.ordering.system.order.service.domain.valueobject.OrderItemId;
 import com.food.ordering.system.order.service.domain.valueobject.StreetAddress;
 import org.springframework.stereotype.Component;
 
@@ -46,7 +42,7 @@ public class OrderDataMapper {
                 .restaurantId(new RestaurantId(createOrderCommand.getRestaurantId()))
                 .deliveryAddress(orderAddressToStreetAddress(createOrderCommand.getAddress()))
                 .price(new Money(createOrderCommand.getPrice()))
-                .items(orderItemsToOrderItemEntity(createOrderCommand.getItems()))
+                .items(orderItemsToOrderItemEntities(createOrderCommand.getItems()))
                 .build();
     }
 
@@ -102,6 +98,13 @@ public class OrderDataMapper {
                 .build();
     }
 
+    public Customer customerModelToCustomer(CustomerModel customerModel) {
+        return new Customer(new CustomerId(UUID.fromString(customerModel.getId())),
+                customerModel.getUsername(),
+                customerModel.getFirstName(),
+                customerModel.getLastName());
+    }
+
     private StreetAddress orderAddressToStreetAddress(OrderAddress orderAddress) {
         return new StreetAddress(
                 UUID.randomUUID(),
@@ -111,7 +114,7 @@ public class OrderDataMapper {
         );
     }
 
-    private List<OrderItem> orderItemsToOrderItemEntity(List<com.food.ordering.system.order.service.domain.dto.create.OrderItem> orderItems) {
+    private List<OrderItem> orderItemsToOrderItemEntities(List<com.food.ordering.system.order.service.domain.dto.create.OrderItem> orderItems) {
         return orderItems.stream()
                 .map(orderItem ->
                         OrderItem.builder()
