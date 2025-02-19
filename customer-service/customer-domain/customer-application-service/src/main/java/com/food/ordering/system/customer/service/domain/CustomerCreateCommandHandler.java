@@ -1,4 +1,4 @@
-package com.food.ordering.system.customer;
+package com.food.ordering.system.customer.service.domain;
 
 import com.food.ordering.system.customer.service.domain.CustomerDomainService;
 import com.food.ordering.system.customer.service.domain.create.CreateCustomerCommand;
